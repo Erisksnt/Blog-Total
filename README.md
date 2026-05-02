@@ -4,7 +4,7 @@ Landing page desenvolvida como estudo para celebrar os **30 anos** da Total Link
 
 ## 📸 Preview
 
-![Preview da landing page](https://via.placeholder.com/800x400?text=Total+Links+30+Anos)
+![Preview da landing page](/land-page/img/preview.png)
 
 ## 🚀 Tecnologias utilizadas
 
@@ -24,4 +24,4 @@ Landing page desenvolvida como estudo para celebrar os **30 anos** da Total Link
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/total-links-30-anos.git
+git clone https://github.com/Erisksnt/Blog-Total.git

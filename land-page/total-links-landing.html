@@ -18,8 +18,8 @@
         }
 
         :root {
-            --primary-color: #0066cc;
-            --primary-dark: #004499;
+            --primary-color: #1a3a5c;
+            --primary-blue: #0055a5;
             --text-dark: #333333;
             --text-light: #666666;
             --bg-light: #f9f9f9;
@@ -27,9 +27,7 @@
             --white: #ffffff;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Segoe UI', 'Open Sans', sans-serif;
@@ -38,14 +36,14 @@
             background-color: var(--white);
         }
 
-        /* HEADER & NAVIGATION */
+        /* HEADER */
         header {
             background-color: var(--white);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .header-container {
@@ -55,33 +53,31 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 70px;
+            height: 90px;
         }
 
         .logo {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-dark);
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 0.8;
         }
 
         .logo-img {
-            height: 80px;
+            height: 60px;
             width: auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 28px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 28px;
             align-items: center;
         }
 
@@ -91,46 +87,46 @@
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 0.5px;
-            transition: color 0.3s ease;
+            transition: color 0.2s;
             text-transform: uppercase;
         }
 
-        nav a:hover {
-            color: var(--primary-color);
+        nav a:hover { color: var(--primary-blue); }
+
+        .search-icon {
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
         }
 
-        .search-box {
-            display: none;
+        .search-icon:hover {
+            background: var(--bg-light);
+            color: var(--primary-blue);
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .header-container {
-                height: 60px;
-            }
-
-            .logo-img {
-                height: 35px;
-            }
-        }
-
-        /* MAIN CONTENT */
-        main {
-            max-width: 900px;
+        /* MAIN LAYOUT */
+        .page-wrapper {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 50px;
+            align-items: start;
         }
 
-        /* ARTICLE HEADER */
-        .article-header {
-            margin-bottom: 50px;
-        }
-
+        /* ARTICLE */
         .article-title {
-            font-size: 42px;
+            font-size: 34px;
             font-weight: 700;
             line-height: 1.3;
             margin-bottom: 20px;
@@ -141,170 +137,92 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            color: var(--text-light);
-            font-size: 14px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
         .author-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            background-color: var(--bg-light);
-            border-radius: 4px;
-            font-weight: 500;
+            display: inline-block;
+            padding: 7px 18px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
         }
 
         .publish-date {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             color: var(--text-light);
+            font-size: 13px;
         }
 
-        /* HERO IMAGE */
-        .article-hero {
+        .publish-date::before {
+            content: '○';
+            font-size: 10px;
+        }
+
+        .article-banner {
             width: 100%;
-            margin-bottom: 40px;
-            border-radius: 8px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
         }
 
-        .article-hero img {
+        .article-banner img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        .image-caption {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-top: 8px;
-            font-style: italic;
-        }
-
-        /* ARTICLE CONTENT */
         article {
             font-size: 16px;
-            line-height: 1.8;
+            line-height: 1.85;
             color: var(--text-dark);
         }
 
         article p {
-            margin-bottom: 25px;
+            margin-bottom: 22px;
             text-align: justify;
         }
 
         article p strong {
             font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .article-image {
-            width: 100%;
-            margin: 40px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .article-image img {
-            width: 100%;
-            height: auto;
-            display: block;
         }
 
         /* TAGS */
         .article-tags {
-            margin-top: 40px;
+            margin-top: 35px;
             padding-top: 20px;
             border-top: 1px solid var(--border-color);
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .tag {
             display: inline-block;
-            padding: 6px 14px;
+            padding: 5px 14px;
             background-color: var(--bg-light);
             border-radius: 20px;
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--primary-blue);
             font-size: 13px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
         }
 
         .tag:hover {
-            background-color: var(--primary-color);
+            background-color: var(--primary-blue);
             color: var(--white);
         }
 
-        /* RELATED ARTICLES */
-        .related-articles {
-            margin-top: 80px;
-            padding-top: 50px;
-            border-top: 2px solid var(--border-color);
-        }
-
-        .related-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--text-dark);
-        }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .article-card {
-            background-color: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .article-card:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .article-card-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background-color: var(--bg-light);
-        }
-
-        .article-card-content {
-            padding: 20px;
-        }
-
-        .article-card-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            color: var(--text-dark);
-        }
-
-        .article-card-date {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-
-        /* BANNER / CTA */
+        /* BANNER CTA */
         .banner-section {
-            margin: 60px 0;
-            width: 100%;
-            border-radius: 8px;
+            margin: 40px 0;
+            border-radius: 6px;
             overflow: hidden;
         }
 
@@ -314,201 +232,274 @@
             display: block;
         }
 
-        /* SIDEBAR */
-        .sidebar-section {
-            margin-top: 60px;
-            padding: 30px;
-            background-color: var(--bg-light);
-            border-radius: 8px;
+        /* RELATED */
+        .related-articles {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid var(--border-color);
         }
 
-        .sidebar-title {
-            font-size: 18px;
+        .related-title {
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--text-dark);
         }
 
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+            display: block;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .article-card-content { padding: 15px; }
+
+        .article-card-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            color: var(--text-dark);
+        }
+
+        .article-card-date {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* SIDEBAR */
+        aside {
+            position: sticky;
+            top: 110px;
+        }
+
+        .sidebar-search {
+            display: flex;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .sidebar-search input {
+            flex: 1;
+            padding: 10px 14px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .sidebar-search button {
+            background: var(--primary-color);
+            border: none;
+            padding: 10px 16px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        /* Últimas matérias */
         .sidebar-list {
             list-style: none;
         }
 
         .sidebar-list li {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
+            padding: 10px 0;
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
         }
 
-        .sidebar-list li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .sidebar-list li::before {
+            content: '›';
+            color: var(--primary-blue);
+            font-size: 18px;
+            line-height: 1.2;
+            flex-shrink: 0;
         }
+
+        .sidebar-list li:last-child { border-bottom: none; }
 
         .sidebar-list a {
             text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
+            color: var(--text-dark);
+            font-size: 13px;
+            line-height: 1.4;
+            transition: color 0.2s;
         }
 
-        .sidebar-list a:hover {
-            color: var(--primary-dark);
+        .sidebar-list a:hover { color: var(--primary-blue); }
+
+        /* Category pills */
+        .category-pills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
+
+        .cat-pill {
+            display: block;
+            text-align: center;
+            padding: 10px 8px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .cat-pill:hover { opacity: 0.85; }
+
+        .cat-cloud    { background: #3b5fc0; color: #fff; }
+        .cat-eventos  { background: #8b44c4; color: #fff; }
+        .cat-internet { background: #2da44e; color: #fff; }
+        .cat-seguranca{ background: #cc2233; color: #fff; }
+        .cat-telefonia{ background: #00aacc; color: #fff; }
+        .cat-totallinks{ background: #1a3a5c; color: #fff; }
 
         /* FOOTER */
         footer {
             background-color: var(--bg-light);
             border-top: 1px solid var(--border-color);
-            padding: 50px 20px;
-            margin-top: 80px;
+            padding: 50px 20px 30px;
+            margin-top: 60px;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .footer-section h3 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             color: var(--text-dark);
         }
 
-        .footer-section ul {
-            list-style: none;
-        }
+        .footer-section ul { list-style: none; }
 
-        .footer-section li {
-            margin-bottom: 12px;
-        }
+        .footer-section li { margin-bottom: 10px; }
 
         .footer-section a {
             text-decoration: none;
             color: var(--text-light);
-            font-size: 14px;
-            transition: color 0.3s ease;
+            font-size: 13px;
+            transition: color 0.2s;
         }
 
-        .footer-section a:hover {
-            color: var(--primary-color);
-        }
+        .footer-section a:hover { color: var(--primary-blue); }
 
         .footer-logo {
-            width: 150px;
+            height: 50px;
+            width: auto;
             margin-bottom: 15px;
+            display: block;
         }
 
         .footer-description {
             font-size: 13px;
             color: var(--text-light);
-            margin-bottom: 15px;
             line-height: 1.6;
         }
 
-        .privacy-link {
-            color: var(--primary-color);
+        .footer-description a {
+            color: var(--primary-blue);
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .privacy-link:hover {
-            color: var(--primary-dark);
         }
 
         .footer-bottom {
-            padding-top: 30px;
+            padding-top: 25px;
             border-top: 1px solid var(--border-color);
             text-align: center;
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-light);
         }
 
         .footer-bottom a {
-            color: var(--primary-color);
+            color: var(--primary-blue);
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--primary-dark);
         }
 
         /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .article-title {
-                font-size: 28px;
-            }
-
-            main {
-                padding: 30px 15px;
-            }
-
-            article {
-                font-size: 15px;
-            }
-
-            .articles-grid {
+        @media (max-width: 900px) {
+            .page-wrapper {
                 grid-template-columns: 1fr;
             }
+            aside { position: static; }
+            .articles-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+        }
 
-            nav ul {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
-            }
-
-            .article-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 600px) {
+            .article-title { font-size: 24px; }
+            .header-container { height: 70px; }
+            .logo-img { height: 44px; }
         }
 
         /* ANIMATIONS */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .article-header {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .article-hero {
-            animation: fadeIn 0.6s ease-out 0.1s both;
-        }
-
-        article {
-            animation: fadeIn 0.6s ease-out 0.2s both;
-        }
+        .article-title  { animation: fadeIn 0.5s ease-out; }
+        .article-banner { animation: fadeIn 0.5s ease-out 0.1s both; }
+        article         { animation: fadeIn 0.5s ease-out 0.2s both; }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="header-container">
-            <a href="https://conteudo.totallinks.com.br/" class="logo">
-                <img src="img/logo-blog1.png" alt="Logo Blog Total Links" class="logo-img">
-                <span></span>
-            </a>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <a href="https://conteudo.totallinks.com.br/" class="logo">
+            <img src="img/logo-blog1.png" alt="Blog Total Links" class="logo-img">
+        </a>
+        <div class="nav-right">
             <nav>
                 <ul>
                     <li><a href="https://www.totallinks.com.br/Institucional">A EMPRESA</a></li>
@@ -520,36 +511,37 @@
                     <li><a href="https://conteudo.totallinks.com.br/">BLOG</a></li>
                 </ul>
             </nav>
-        </div>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main>
-        <!-- ARTICLE HEADER -->
-        <section class="article-header">
-            <h1 class="article-title">Total Links completa 30 anos com excelência em conexões inteligentes</h1>
-            <div class="article-meta">
-                <span class="author-badge">Total Links</span>
-                <span class="publish-date">10 de julho de 2026</span>
+            <div class="search-icon" title="Pesquisar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
             </div>
-        </section>
+        </div>
+    </div>
+</header>
 
-        <!-- HERO IMAGE -->
-        <figure class="article-hero">
-            <figcaption class="image-caption">Total Links completa 30 anos com excelência em conexões inteligentes</figcaption>
-        </figure>
+<!-- PAGE WRAPPER: artigo + sidebar -->
+<div class="page-wrapper">
 
-        <!-- ARTICLE CONTENT -->
+    <!-- COLUNA PRINCIPAL -->
+    <main>
+        <h1 class="article-title">Total Links completa 30 anos com excelência em conexões inteligentes</h1>
+
+        <div class="article-meta">
+            <span class="author-badge">Total Links</span>
+            <span class="publish-date">10 de julho de 2026</span>
+        </div>
+
+        <!-- BANNER PRINCIPAL -->
+        <div class="article-banner">
+            <img src="img/image2.jpeg" alt="Total Links 30 Anos - Aniversário Institucional">
+        </div>
+
+        <!-- CONTEÚDO -->
         <article>
-            <figure class="article-image">
-                <img src="img/image2.jpeg" alt="Banner Total Links">
-            </figure>
-
-            <!-- MAIN TEXT -->
             <p>Um dos mais tradicionais provedores de acesso à internet do país, a <strong>Total Links</strong> está celebrando seu trigésimo aniversário em 2026. Desde sua fundação, em 1996, a empresa mantém o compromisso de fornecer serviços de excelência com confiabilidade e inovação, consolidando sua posição no mercado de telecomunicações.</p>
 
-            <p>A Total Links acompanhou as transformações do mundo digital e teve papel fundamental na conectividade de milhares de usuários. Sua missão continua sendo oferecer as melhores soluções em tecnologia da informação, com o melhor atendimento e no menor tempo possível.<br>
-            Sua missão é oferecer as melhores soluções em tecnologia da informação, com o melhor atendimento e no menor tempo possível.</p>
+            <p>A Total Links acompanhou as transformações do mundo digital e teve papel fundamental na conectividade de milhares de usuários. Sua missão continua sendo oferecer as melhores soluções em tecnologia da informação, com o melhor atendimento e no menor tempo possível.</p>
 
             <p>Em 2025, a empresa fortaleceu sua atuação no setor de eventos corporativos e conectividade para grandes negócios. Neste ano de 2026, a Total Links reforça sua estrutura e amplia sua presença em regiões estratégicas, investindo continuamente em inovação e qualidade de serviço.</p>
 
@@ -567,38 +559,33 @@
             <a href="https://conteudo.totallinks.com.br/tag/tecnologia/" class="tag">tecnologia</a>
         </div>
 
-        <!-- BANNER / CTA -->
+        <!-- BANNER CTA -->
         <div class="banner-section">
-            <a href="https://www.totallinks.com.br/">
+            <a href="https://www.totallinks.com.br/" target="_blank" rel="noopener">
                 <img src="https://conteudo.totallinks.com.br/wp-content/uploads/2022/06/banner-servicos2-1.png" alt="Conheça os serviços da Total Links">
             </a>
         </div>
 
-        <!-- RELATED ARTICLES -->
+        <!-- MATÉRIAS RELACIONADAS -->
         <section class="related-articles">
             <h2 class="related-title">Matérias relacionadas</h2>
             <div class="articles-grid">
-                <!-- Article 1 -->
                 <a href="https://conteudo.totallinks.com.br/a-vida-como-ela-e-e-sera/" class="article-card">
-                    <img src="https://conteudo.totallinks.com.br/wp-content/uploads/2023/11/a_vida_como_ela_e_e_sera-370x270.png" alt="A VIDA COMO ELA É E SERÁ..." class="article-card-image">
+                    <img src="https://conteudo.totallinks.com.br/wp-content/uploads/2023/11/a_vida_como_ela_e_e_sera-370x270.png" alt="A VIDA COMO ELA É E SERÁ...">
                     <div class="article-card-content">
                         <h3 class="article-card-title">A VIDA COMO ELA É E SERÁ…</h3>
                         <p class="article-card-date">24 de novembro de 2023</p>
                     </div>
                 </a>
-
-                <!-- Article 2 -->
                 <a href="https://conteudo.totallinks.com.br/total-links-marcara-presenca-em-grande-feira-logistica/" class="article-card">
-                    <img src="https://conteudo.totallinks.com.br/wp-content/uploads/2023/04/BLOG-nov-4-370x270.png" alt="Total Links marca presença em grande feira logística!" class="article-card-image">
+                    <img src="https://conteudo.totallinks.com.br/wp-content/uploads/2023/04/BLOG-nov-4-370x270.png" alt="Total Links marca presença em grande feira logística!">
                     <div class="article-card-content">
                         <h3 class="article-card-title">Total Links marca presença em grande feira logística!</h3>
                         <p class="article-card-date">12 de abril de 2023</p>
                     </div>
                 </a>
-
-                <!-- Article 3 -->
                 <a href="https://conteudo.totallinks.com.br/dia-mundial-das-telecomunicacoes-e-o-dia-internacional-da-internet/" class="article-card">
-                    <img src="https://conteudo.totallinks.com.br/wp-content/uploads/2024/05/telecomunicacoes_internet_blog_destaque-1-370x270.png" alt="Dia Mundial das Telecomunicações e o Dia Internacional da Internet" class="article-card-image">
+                    <img src="https://conteudo.totallinks.com.br/wp-content/uploads/2024/05/telecomunicacoes_internet_blog_destaque-1-370x270.png" alt="Dia Mundial das Telecomunicações">
                     <div class="article-card-content">
                         <h3 class="article-card-title">Dia Mundial das Telecomunicações e o Dia Internacional da Internet</h3>
                         <p class="article-card-date">17 de maio de 2024</p>
@@ -606,75 +593,81 @@
                 </a>
             </div>
         </section>
+    </main>
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar-section">
-            <h3 class="sidebar-title">Últimas Matérias</h3>
+    <!-- SIDEBAR -->
+    <aside>
+        <!-- Busca -->
+        <div class="sidebar-search">
+            <input type="text" placeholder="Pesquisar ...">
+        <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+        </div>
+
+        <!-- Inscreva-se -->
+        <div class="sidebar-section">
+            <p class="sidebar-section-title">Inscreva-se em nosso feed</p>
+        </div>
+
+        <!-- Últimas matérias -->
+        <div class="sidebar-section">
+            <p class="sidebar-section-title">Últimas Matérias</p>
             <ul class="sidebar-list">
                 <li><a href="https://conteudo.totallinks.com.br/cuidado-ias-preferem-inventar-a-dizer-que-nao-conhecem-algo/">Cuidado: IA´s preferem inventar a dizer que 'não conhecem' algo</a></li>
                 <li><a href="https://conteudo.totallinks.com.br/dia-mundial-das-telecomunicacoes-e-o-dia-internacional-da-internet/">Dia Mundial das Telecomunicações e o Dia Internacional da Internet</a></li>
                 <li><a href="https://conteudo.totallinks.com.br/a-essencia-da-internet-pensada-em-maio-de-2011/">A essência da Internet pensada em Maio de 2011</a></li>
-                <li><a href="https://conteudo.totallinks.com.br/e-fundamental-lancar-um-olhar-amplo-e-critico-para-a-regulacao-de-inteligencia-artificial/">É fundamental lançar um olhar amplo e crítico para a regulação de inteligência artificial</a></li>
+                <li><a href="https://conteudo.totallinks.com.br/e-fundamental-lancar-um-olhar-amplo-e-critico-para-a-regulacao-de-inteligencia-artificial/">É fundamental lançar um olhar crítico para a regulação de inteligência artificial</a></li>
                 <li><a href="https://conteudo.totallinks.com.br/o-impacto-transformador-da-tecnologia-no-empoderamento-feminino/">O Impacto transformador da tecnologia no Empoderamento Feminino</a></li>
             </ul>
-        </aside>
+        </div>
 
-        <aside class="sidebar-section">
-            <h3 class="sidebar-title">Matérias do Blog</h3>
-            <ul class="sidebar-list">
-                <li><a href="https://conteudo.totallinks.com.br/category/nuvem/">Cloud</a></li>
-                <li><a href="https://conteudo.totallinks.com.br/category/eventos/">Eventos</a></li>
-                <li><a href="https://conteudo.totallinks.com.br/category/internet/">Internet</a></li>
-                <li><a href="https://conteudo.totallinks.com.br/category/seguranca/">Segurança</a></li>
-                <li><a href="https://conteudo.totallinks.com.br/category/telefonia/">Telefonia</a></li>
-                <li><a href="https://conteudo.totallinks.com.br/category/total-links/">Total Links</a></li>
-            </ul>
-        </aside>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <!-- Footer Section 1 -->
-                <div class="footer-section">
-                    <img src="https://conteudo.totallinks.com.br/wp-content/uploads/2022/06/logo-blog-2.png" alt="Logo Total Links" class="footer-logo">
-                    <p class="footer-description">
-                        Inscreva-se e receba as nossas novidades!<br>
-                        Ao se cadastrar você está de acordo com a nossa 
-                        <a href="https://www.totallinks.com.br/Politica-de-Privacidade" class="privacy-link">Política de Privacidade</a>
-                    </p>
-                </div>
-
-                <!-- Footer Section 2 -->
-                <div class="footer-section">
-                    <h3>Categorias</h3>
-                    <ul>
-                        <li><a href="https://conteudo.totallinks.com.br/category/cloud/">Cloud</a></li>
-                        <li><a href="https://conteudo.totallinks.com.br/category/eventos/">Eventos</a></li>
-                        <li><a href="https://conteudo.totallinks.com.br/category/internet/">Internet</a></li>
-                        <li><a href="https://conteudo.totallinks.com.br/category/seguranca/">Segurança</a></li>
-                    </ul>
-                </div>
-
-                <!-- Footer Section 3 -->
-                <div class="footer-section">
-                    <h3>Sobre</h3>
-                    <ul>
-                        <li><a href="https://www.totallinks.com.br/Institucional">A Empresa</a></li>
-                        <li><a href="https://www.totallinks.com.br/">Site Total Links</a></li>
-                        <li><a href="https://conteudo.totallinks.com.br/">Blog</a></li>
-                        <li><a href="https://www.totallinks.com.br/Politica-de-Privacidade">Privacidade</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p>Copyright © 2026 <a href="https://conteudo.totallinks.com.br/">Blog Total Links</a><br>
-                All rights reserved. Theme: <a href="https://themegrill.com/themes/flash/">Flash</a> by ThemeGrill. Powered by <a href="https://wordpress.org/">WordPress</a></p>
+        <!-- Matérias do Blog -->
+        <div class="sidebar-section">
+            <p class="sidebar-section-title">Matérias do Blog</p>
+            <div class="category-pills">
+                <a href="https://conteudo.totallinks.com.br/category/nuvem/" class="cat-pill cat-cloud">Cloud</a>
+                <a href="https://conteudo.totallinks.com.br/category/eventos/" class="cat-pill cat-eventos">Eventos</a>
+                <a href="https://conteudo.totallinks.com.br/category/internet/" class="cat-pill cat-internet">Internet</a>
+                <a href="https://conteudo.totallinks.com.br/category/seguranca/" class="cat-pill cat-seguranca">Segurança</a>
+                <a href="https://conteudo.totallinks.com.br/category/telefonia/" class="cat-pill cat-telefonia">Telefonia</a>
+                <a href="https://conteudo.totallinks.com.br/category/total-links/" class="cat-pill cat-totallinks">Total Links</a>
             </div>
         </div>
-    </footer>
+    </aside>
+
+</div><!-- /page-wrapper -->
+
+<!-- FOOTER SIMPLES -->
+<footer style="background-color: #002244; padding: 60px 20px; text-align: center;">
+    <div style="max-width: 500px; margin: 0 auto;">
+
+        <!-- Logo centralizada -->
+        <img src="img/logo-blog1.png" alt="Blog Total Links" class="logo-img">
+
+        <!-- Frase de inscrição -->
+        <p style="color: white; font-size: 14px; margin-bottom: 15px;">
+            Inscreva-se e receba as nossas novidades!
+        </p>
+        <p style="color: #aaaaaa; font-size: 12px; margin-bottom: 20px;">
+            Ao se cadastrar você está de acordo com a nossa 
+            <a href="https://www.totallinks.com.br/Politica-de-Privacidade" style="color: #ffcc00; text-decoration: none;">
+                Política de Privacidade
+            </a>
+        </p>
+
+        <!-- Campo de e-mail + botão -->
+        <div style="display: flex; justify-content: center; max-width: 400px; margin: 0 auto;">
+            <input type="email" placeholder="E-mail" style="flex: 1; padding: 14px 16px; border: none; border-radius: 4px 0 0 4px; font-size: 14px; outline: none;">
+            <button style="background-color: #5a5a5a; border: none; padding: 14px 24px; border-radius: 0 4px 4px 0; font-weight: bold; cursor: pointer; font-size: 14px; color: #002244;">
+                Enviar
+            </button>
+        </div>
+
+    </div>
+</footer>
+
 </body>
 </html>
